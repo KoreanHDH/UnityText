@@ -9,11 +9,12 @@ public class ArrowController : MonoBehaviour
     // Start is called before the first frame update
 
     public float moveStep = 0.098f;
+    // public GameObject gd;
     GameObject player;
     void Start()
     {
         Application.targetFrameRate = 60;
-        player = GameObject.Find("player");
+        player = GameObject.Find("player ");
     }
 
     // Update is called once per frame
@@ -27,6 +28,8 @@ public class ArrowController : MonoBehaviour
         }
         //충돌 판정 코드
 
+        //if (player == null) return;
+
         Vector2 p1 = transform.position;
         Vector2 p2 = player.transform.position;
         Vector2 dir = p1 - p2;
@@ -36,6 +39,9 @@ public class ArrowController : MonoBehaviour
 
         if (distance < r1 + r2)
         {
+            GameObject gd = GameObject.Find("GameManager");
+            gd.GetComponent<GameManager>().DecreaseHP();
+
             Destroy(gameObject);
         }
       

@@ -31,4 +31,15 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    public void LButtonDown()
+    {
+        transform.Translate(-moveStep, 0, 0);
+    }
+
+    public void RButtonDown()
+    {
+        transform.Translate(moveStep, 0, 0);
+    }
+
 }
